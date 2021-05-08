@@ -7,8 +7,8 @@ int stack();
 
 int main()
 {   
-    queue();
-    //stack();
+    //queue();
+    stack();
     return 0;
 }
 
@@ -18,6 +18,7 @@ int queue()
     int i;
 
     // Allocate space for our queue and initialize it.
+    //Inicialmente el tamaño de la cola es de diez elementos pero puede ir aumentando a medida que sea necesario para la aplicación.
     struct queue* MyQueuePtr = (struct queue*)malloc(sizeof(struct queue));
     init(MyQueuePtr);
 
@@ -84,6 +85,8 @@ int stack()
     // Fill the stack.
     for (i = 0; i < 10; i++)
         push(&mine, i);
+    
+    printf("Sobrepasar el limite: %d (0 es fallo, 1 es que entra)", push(&mine, 13));
 
     // Check if full works.
     if (full(&mine))
@@ -91,7 +94,7 @@ int stack()
 
     // Pop everything back off.
     for (i = 0; i < 10; i++)
-        printf("popping %d\n", pop(&mine));
+        printf("popping %d\n", pop(&mine)); //no importa el index, siempre es FIFO. La ultima en entrar es la primera en salir.
 
     system("PAUSE");
 

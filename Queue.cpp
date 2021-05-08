@@ -4,32 +4,33 @@
 #define EMPTY -1
 #define INIT_SIZE 10
 
-// Pre-condition: qPtr points to a valid struct queue.
+// Pre-condition: qPtr points to a valid struct queue. Apunta a una cola de estructura valida.
 // Post-condition: The struct that qPtr points to will be set up to represent an
-//                 empty queue.
+//                 empty queue. La estructura obtiene puntos que representan una cola vacia.
 void init(struct queue* qPtr) {
 
+    //se accede mediante -> a las propiedades de un puntero.
     // The front index is 0, as is the number of elements.
-    qPtr->elements = (int*)malloc(sizeof(int) * INIT_SIZE);
-    qPtr->front = 0;
-    qPtr->numElements = 0;
-    qPtr->queueSize = INIT_SIZE;
+    qPtr->elements = (int*)malloc(sizeof(int) * INIT_SIZE); //El espacio de los elementos que se guarda con mallox, multiplicado por el tamaño inicial.
+    qPtr->front = 0; //al principio no hay nada en frente.
+    qPtr->numElements = 0; //Se inicializa en cero.
+    qPtr->queueSize = INIT_SIZE; //EL tamaño inicial.
 }
 
 // Pre-condition: qPtr points to a valid struct queue and val is the value to
 //                enqueue into the queue pointed to by qPtr.
+//                  //El puntero es a una estructura valida y val corresponde al valor que se quiere agregar a la cola.
 // Post-condition: If the operation is successful, 1 will be returned, otherwise
 //                 no change will be made to the queue and 0 will be returned.
+//                  Si todo sale bien se devuelve un 1, caso contrario un 0
 
-// Note: Right now, I don't know how to detect that the realloc failed, so 0
-//       does not get returned.
 
 int enqueue(struct queue* qPtr, int val) {
 
     int i;
 
     // Regular case where our queue isn't full.
-    if (qPtr->numElements != qPtr->queueSize) {
+    if (qPtr->numElements != qPtr->queueSize) { //Si la cola no esta completa
 
         // Enqueue the current element. Note the use of mod for the wraparound
         // case. Edit the number of elements.
