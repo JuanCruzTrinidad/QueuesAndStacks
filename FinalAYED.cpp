@@ -1,14 +1,17 @@
 #include <iostream>
 #include "Queue.h"
 #include "Stack.h"
+#include "DoubleLinkedList.h"
 
 int queue();
 int stack();
+int doubleLinkedList();
 
 int main()
 {   
+    doubleLinkedList();
     //queue();
-    stack();
+    //stack();
     return 0;
 }
 
@@ -100,3 +103,20 @@ int stack()
 
     return 0;
 }
+
+int doubleLinkedList() {
+    insert(3);
+    insert(1);
+    insert(7);
+    insert(2);
+    insert(9);
+    std::cout << "Lista LIFO: ";
+    displayLIFO();
+    std::cout << "\n";
+    std::cout << "Lista FIFO:  ";
+    displayFIFO();
+    return 0;
+}
+
+//En los ejemplos mostrados la cola resulta más interesante por el hecho de poder dinamicamente modificar su tamaño, cosa que no pareciera posible en la pila.
+//Ya que la pila se inicializa como un array con determinada cantidad de elementos.
