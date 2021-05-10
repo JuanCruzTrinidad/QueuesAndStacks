@@ -22,7 +22,7 @@ void insert(int newdata) {
         newnode->next = first; //SI no es el primero, el siguiente del nuevo nodo apunta al primero. (El nodo anterior)
         first->prev = newnode; //Y el previo del primero (nodo anterior) es ahora el nodo que ingresa.
         first = newnode; //Entonces el primer nodo pasa a ser el nodo que ingresa,
-        first->prev = last; //Y el previo del primero pasa a ser el ultimo
+        first->prev = last; //Y el previo del nodo pasa a ser el ultimo
         last->next = first; //Y el siguiente del ultimo pasa a ser el primero.
     }
     count++;
@@ -40,10 +40,10 @@ void displayLIFO() {
 
 void displayFIFO() {
     struct Node* ptr;
-    ptr = last;
+    ptr = first;
     int scopeCount = count;
     for (int i = 0; i <= scopeCount - 1; i++) {
-        std::cout << ptr->data << " ";
         ptr = ptr->prev;
+        std::cout << ptr->data << " ";
     }
 }

@@ -2,16 +2,23 @@
 #include "Queue.h"
 #include "Stack.h"
 #include "DoubleLinkedList.h"
+#include "SingleLinkedList.h"
+#include "BST.cpp"
+
 
 int queue();
 int stack();
 int doubleLinkedList();
+int singleLinkedList();
+int bst();
 
 int main()
 {   
-    doubleLinkedList();
+    //doubleLinkedList();
     //queue();
     //stack();
+    //singleLinkedList();
+    bst();
     return 0;
 }
 
@@ -118,5 +125,34 @@ int doubleLinkedList() {
     return 0;
 }
 
+int singleLinkedList()
+{
+    insertSingle(3);
+    insertSingle(1);
+    insertSingle(7);
+    insertSingle(2);
+    insertSingle(9);
+    std::cout << "Lista Single: ";
+    display();
+    return 0;
+}
+
+int bst()
+{
+    BST* arbol = new BST(4);
+    arbol->insert(2);
+    arbol->insert(5);
+    arbol->insert(8);
+
+    bool esta = arbol->search(4);
+    bool noEsta = arbol->search(6);
+    int minValue = arbol->getMinValue();
+    int maxValue = arbol -> getMaxValue();
+    printf("%s", esta ? "Se encuentra el numero cuatro. \n" : "false");
+    printf("%s", noEsta ? "true" : "No se encuentra el numero seis. \n");
+    printf("El valor minimo del arbol es: %d \n", minValue);
+    printf("El valor maximo del arbol es: %d \n", maxValue);
+    return 0;
+};
 //En los ejemplos mostrados la cola resulta más interesante por el hecho de poder dinamicamente modificar su tamaño, cosa que no pareciera posible en la pila.
 //Ya que la pila se inicializa como un array con determinada cantidad de elementos.
