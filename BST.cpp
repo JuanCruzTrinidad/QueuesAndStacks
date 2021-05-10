@@ -31,21 +31,20 @@ public:
                 }
                 else {
                     //initializing current node to the left node
-                    //Se inicializa el nodo
+                    //Se cambia el nodo actual por el de la izquierda
                     currentNode = currentNode->left;
                 }
             }
             else {
-                //If value is greater than current value, exploring right sub-tree 
                 // Si el valor es mayor que el valor actual, explorar el subárbol derecho
                 if (currentNode->right == NULL) {
-                    // If right node of current node is end of the BST, iserting the value there
+                    //Si este nodo es el final, creo el nuevo nodo.
                     BST* newNode = new BST(val);
                     currentNode->right = newNode;
                     break;
                 }
                 else {
-                    //initializing current node to the right node
+                    //Se cambia el nodo por el de la derecha.
                     currentNode = currentNode->right;
                 }
             }
